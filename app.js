@@ -61,9 +61,6 @@ app.get('/greet', (req, res) => {
 
 
 app.get('/game', (req, res) => {
-  // code called when the /game route is called
-  console.log("Req:", req);
-  console.log("Res:", res);
   const play = req.query.play;
 
   if (play === "yes") {
@@ -75,5 +72,24 @@ app.get('/game', (req, res) => {
       name: name
     })
   }
+})
 
+app.get('/madlib', (req, res) => {
+  const personName = req.query.personName;
+  const color = req.query.color;
+  const noun = req.query.noun;
+  const adjective = req.query.adjective;
+
+  console.log("Madlib Page");
+  console.log("Person Name:", personName);
+  console.log("Color:", color);
+  console.log("Noun:", noun);
+  console.log("Adjective:", adjective);
+
+  res.render('madlib.html.njk', {
+    personName: personName,
+    color: color,
+    noun: noun,
+    adjective: adjective
+  });
 })
