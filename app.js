@@ -67,9 +67,7 @@ app.get('/game', (req, res) => {
   const play = req.query.play;
 
   if (play === "yes") {
-    res.render('game.html.nk', {
-      name: name,
-
+    res.render('game.html.njk', {
     });
   }
   else if (play === "no") {
